@@ -13,18 +13,13 @@ const App = {
     'methods': {
         inputValueHandler(event) {
             this.inputValue = event.target.value
-            if(this.notes.length < 1) {
-                this.removeBtnClasses = 'disabled';
-            } else {
-                this.removeBtnClasses = '';
-            }
         },
         addNote(event) {
             if(this.inputValue === '') {
                 this.placeholderName = 'Can not add empty field!';
                 this.inputClasses = 'red_input';
                 return;
-            }else {
+            } else {
                 this.inputClasses = '';
                 this.placeholderName = 'Enter the note title';
                 this.notes.push(this.inputValue);
@@ -32,7 +27,7 @@ const App = {
                 if(this.notes.length > 0) {
                     this.removeBtnClasses = '';
                 }
-                console.log(event); // li object user added
+                console.log(event);
             }
         },
         keyPressHandler(event) {
@@ -48,7 +43,14 @@ const App = {
                 this.notes.splice(index, this.notes.length);
             }
         }
-    }
+    },
+    // For better perfomance while computing
+    computed: {
 
+    },
+    // To view variable changes
+    watch: {
+
+    }
 }
 Vue.createApp(App).mount('#app');    // set values into html file

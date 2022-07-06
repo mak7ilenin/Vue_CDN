@@ -23,31 +23,50 @@
                 <div class="note_input w-75">
                     <input type="text" class="form-control"
                         :class="inputClasses"
-                        v-bind:value="inputValue"
-                        v-bind:placeholder="placeholderName"
-                        v-on:input='inputValueHandler' 
-                        v-on:keypress="keyPressHandler"
+                        :value="inputValue"
+                        :placeholder="placeholderName"
+                        @input='inputValueHandler' 
+                        @keypress="keyPressHandler"
                     />
                 </div>
 
                 <ul class="list-group" v-if="notes.length !== 0">
                     <li class="list-group-item d-flex" v-for="(note, index) in notes">
                         <a>{{ index + 1 }}. {{ note }}</a>
-                        <a v-on:click="removeNote(index)">remove</a>
+                        <a @click="removeNote(index)">remove</a>
                     </li>
                 </ul>
+
                 <div class="empty-notes-list" v-if="notes.length === 0">
                     <p>List of notes is empty.</p>
                 </div>
+                <div class="empty-notes-list" v-if="notes.length > 1">
+                    <p :style="{
+                        color: notes.length !== 2 ? 'red' : 'green'
+                        }">
+                        You have {{ notes.length }} notes.
+                    </p>
+                </div>
+                <div class="empty-notes-list" v-if="notes.length === 1">
+                    <p>You have one note.</p>
+                </div>
                 
                 <div class="left_side w-50">
-                    <button class="btn btn-outline-success w-50" v-on:click="addNote($event)">Add</button>
+                    <button class="btn btn-outline-success w-50" @click="addNote($event)">Add</button>
                 </div>
                 <div class="right_side w-50">
+                    <!-- If note list have at least one element -->
                     <button class="btn btn-outline-danger w-50" 
-                        v-on:click="removeAll" 
-                        :class="removeBtnClasses">
+                        @click="removeAll" 
+                        :class="removeBtnClasses"
+                        v-if="notes.length !== 0">
                     Remove all</button>
+                    <!-- If note list is empty -->
+                    <button 
+                        class="btn btn-outline-danger disabled w-50" 
+                        v-if="notes.length === 0">
+                        Remove all
+                    </button>
                 </div>
             </div>
         </div>

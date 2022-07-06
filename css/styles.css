@@ -1,12 +1,52 @@
+p {margin: 0; padding: 0;} a {color: #000 !important; text-decoration: none !important}
+
 html {
     scroll-behavior: smooth;
 }
 body {
-    background-color: #424463;
+    background-color: #424463 !important;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
+.wrapper {
+    width: 80%;
+    margin: 0 auto;
+}
 h1 {
-    font-size: 72px;
-    color: #fff;
-    text-align: center;
+    font-size: 72px !important;
+    color: #fff !important;
+}
+.form { 
+    width: 60%;
+    margin: 90px auto;
+    min-height: 290px;
+    height: auto;
+}
+.form p {
+    height: 60px !important;
+    margin-bottom: 20px !important;
+}
+.form button {
+    height: 40px;
+}
+.form input {
+    height: 45px;
+    border-color: #9888df !important;
+}
+.note_input {
+    margin: 0 auto;
+}
+.list-group {
+    width: 75%;
+    margin: 15px auto;
+}
+.list-group-item {
+    width: 100%;
+    height: 40px;
+    border-color: #6d8bf7 !important;
+}
+.right_side, .left_side {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0
 }

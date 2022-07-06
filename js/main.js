@@ -39,8 +39,13 @@ const App = {
                 this.addNote();
             }
         },
-        removeNote() {
-            
+        removeNote(index) {
+            this.notes.splice(index, 1);
+        },
+        removeAll(index) {
+            if(this.notes.length > 0) {
+                this.notes.splice(index, this.notes.length);
+            }
         }
     }
 

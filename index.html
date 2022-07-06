@@ -31,10 +31,9 @@
                 </div>
 
                 <ul class="list-group">
-                    <li class="list-group-item d-flex" v-for="note in notes">{{ note }}</li>
-                    <li class="list-group-item d-flex" v-for="note in notes">
-                        <a>{{ note }}</a>
-                        <a class="remove-note">remove</a>
+                    <li class="list-group-item d-flex" v-for="(note, index) in notes">
+                        <a>{{ index + 1 }}. {{ note }}</a>
+                        <a v-on:click="removeNote(index)">remove</a>
                     </li>
                 </ul>
                 
@@ -43,9 +42,9 @@
                 </div>
                 <div class="right_side w-50">
                     <button class="btn btn-outline-danger w-50" 
-                        v-on:click="removeNote" 
+                        v-on:click="removeAll" 
                         :class="removeBtnClasses">
-                    Remove</button>
+                    Remove all</button>
                 </div>
             </div>
         </div>

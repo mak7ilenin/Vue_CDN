@@ -30,15 +30,18 @@
                     />
                 </div>
 
-                <ul class="list-group">
+                <ul class="list-group" v-if="notes.length !== 0">
                     <li class="list-group-item d-flex" v-for="(note, index) in notes">
                         <a>{{ index + 1 }}. {{ note }}</a>
                         <a v-on:click="removeNote(index)">remove</a>
                     </li>
                 </ul>
+                <div class="empty-notes-list" v-if="notes.length === 0">
+                    <p>List of notes is empty.</p>
+                </div>
                 
                 <div class="left_side w-50">
-                    <button class="btn btn-outline-success w-50" v-on:click="addNote">Add</button>
+                    <button class="btn btn-outline-success w-50" v-on:click="addNote($event)">Add</button>
                 </div>
                 <div class="right_side w-50">
                     <button class="btn btn-outline-danger w-50" 

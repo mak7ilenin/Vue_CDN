@@ -19,7 +19,7 @@ const App = {
                 this.removeBtnClasses = '';
             }
         },
-        addNote() {
+        addNote(event) {
             if(this.inputValue === '') {
                 this.placeholderName = 'Can not add empty field!';
                 this.inputClasses = 'red_input';
@@ -32,6 +32,7 @@ const App = {
                 if(this.notes.length > 0) {
                     this.removeBtnClasses = '';
                 }
+                console.log(event); // li object user added
             }
         },
         keyPressHandler(event) {

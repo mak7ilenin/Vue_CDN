@@ -4,6 +4,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="favicon.ico" />
 
         <link rel="stylesheet" href="css/styles.css">
         <!-- CSS only -->
@@ -17,24 +18,34 @@
         <div class="wrapper" id="app">
             <h1 class="text-center m-5">{{ message }}</h1>
             
-            <div class="form bg-light rounded-2 d-flex flex-wrap">
-                <p class="text-center w-100 mt-4 mb-0 fs-1">Notes</p>
+            <div class="form bg-light shadow rounded-2 d-flex flex-wrap">
+                <p class="text-center w-100 mt-4 mb-0 fs-1">Your notes</p>
                 <div class="note_input w-75">
-                    <input type="text" class="form-control" placeholder="Введите название заметки" 
+                    <input type="text" class="form-control"
+                        :class="inputClasses"
                         v-bind:value="inputValue"
-                        v-on:input='inputChangeHandler' 
+                        v-bind:placeholder="placeholderName"
+                        v-on:input='inputValueHandler' 
+                        v-on:keypress="keyPressHandler"
                     />
                 </div>
 
                 <ul class="list-group">
-                    <li class="list-group-item" v-for="note in notes">{{ note }}</li>
+                    <li class="list-group-item d-flex" v-for="note in notes">{{ note }}</li>
+                    <li class="list-group-item d-flex" v-for="note in notes">
+                        <a>{{ note }}</a>
+                        <a class="remove-note">remove</a>
+                    </li>
                 </ul>
                 
                 <div class="left_side w-50">
                     <button class="btn btn-outline-success w-50" v-on:click="addNote">Add</button>
                 </div>
                 <div class="right_side w-50">
-                    <button class="btn btn-outline-danger w-50">Remove</button>
+                    <button class="btn btn-outline-danger w-50" 
+                        v-on:click="removeNote" 
+                        :class="removeBtnClasses">
+                    Remove</button>
                 </div>
             </div>
         </div>

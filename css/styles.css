@@ -24,13 +24,34 @@ h1 {
 .form p {
     height: 60px !important;
     margin-bottom: 20px !important;
+    font-weight: 600;
 }
 .form button {
     height: 40px;
 }
 .form input {
     height: 45px;
-    border-color: #9888df !important;
+    border-color: #9888df;
+    color: #000;
+    font-size: 17px;
+    letter-spacing: 0.5px;
+}
+.red_input::placeholder {
+    color: #ff0000 !important;
+    /* #ced4da */
+    font-size: 18px;
+    letter-spacing: 1px;
+    transition: all .2s;
+}
+.red_input:focus {
+    border-color: rgba(239, 104, 104, 0.8) !important;
+    box-shadow: 0 2px 2px rgba(255, 0, 0, 0.075) inset, 0 1px 10px rgba(239, 104, 104, 0.6) !important;
+    outline: #ff0000;
+}
+.red_input {
+    border-color: rgba(255, 0, 0, 0.8) !important;
+    outline: #ff0000 !important;
+    transition: all .2s;
 }
 .note_input {
     margin: 0 auto;
@@ -43,6 +64,29 @@ h1 {
     width: 100%;
     height: 40px;
     border-color: #6d8bf7 !important;
+    /* position: relative; */
+    align-items: center;
+}
+.list-group-item a:nth-child(1) {
+    width: 90%;
+}
+.list-group-item a:nth-child(2) {
+    width: 15%;
+    cursor: pointer;
+    color: #ff0000 !important;
+    text-align: center;
+    font-size: 18px;
+    border-radius: 30px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border: 1px solid #e29393;
+    transition: all .3s;
+}
+.list-group-item a:nth-child(2):hover {
+    border-color: #ff0000;
+    background-color: #ffa4a483;
+    color: #000 !important;
+    transform: scaleX(1.2);
 }
 .right_side, .left_side {
     display: flex;

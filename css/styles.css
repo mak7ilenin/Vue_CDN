@@ -1,0 +1,12 @@
+html {
+    scroll-behavior: smooth;
+}
+body {
+    background-color: #424463;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+h1 {
+    font-size: 72px;
+    color: #fff;
+    text-align: center;
+}
